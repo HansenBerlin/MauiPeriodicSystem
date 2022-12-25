@@ -4,6 +4,7 @@
 @using System.Text.Json
 @using System.Text
 @using System.Net.Mime
+@using System.Net.Http.Json
 @inject HttpClient HttpClient;
 
 <div style="padding-left: 2vw; padding-right: 2vw; padding-top: 2vw;">
@@ -12,14 +13,15 @@
         <div style="justify-content: center; display: flex;">
             @foreach (var model in row)
             {
-                <SwitchButton Model="model" OnModelChanged="SingleButtonClicked" />
+                <SwitchButton Model="model" OnModelChanged="async x => await SingleButtonClicked(x)" />
             }
         </div>
     }
     <OptionsDialog IsVisible="_isDialogVisible"
-                   OnColorActivated="DialogColorButtonClicked"
-                   OnColorsActivated="DialogAllButtonClicked"
-                   OnClosed="() => { _isDialogVisible = false; }" />
+                   OnColorActivated="async x => await DialogColorButtonClicked(x)"
+                   OnColorsActivated="async x => await DialogAllButtonClicked(x)"
+                   OnClosed="() => { _isDialogVisible = false; }"
+                   Buttons="_buttonModels.AllButtons"/>
 </div>
 <MudButton Style="position: absolute; width: 17.9vw; height: 4.3vw; top: 0; margin: 8.8vw auto auto 33.2vw; font-size: 1.2vw; background-color: transparent; border-color: black;"
            OnClick="OpenDialog"
@@ -30,27 +32,39 @@
 
 @code {
 
-    const string EndpointMultiple = "http://192.168.10.60:5000/multiple";
+    const string EndpointMultiple = "http://192.168.10.60:5000/set";
+    const string EndpointGetState = "http://192.168.10.60:5000/active";
     private readonly ButtonGrid _buttonModels = new();
     bool _isDialogVisible;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var response = await HttpClient.GetAsync(EndpointGetState);
+            var content = await response.Content.ReadFromJsonAsync<Dictionary<int, bool>>();
+            foreach (var btn in _buttonModels.AllButtons)
+            {                
+               var isActive = content[btn.Pin];
+               btn.State = isActive ? State.Active : State.Inactive;
+            }
+            StateHasChanged();            
+        }
+    }
 
     private void OpenDialog()
     {
         _isDialogVisible = !_isDialogVisible;
-        //var reference = DialogService.Show<OptionsDialog>("Options Dialog");
-
     }
 
     private async Task DialogColorButtonClicked(ColorSwitcher colorSwitcher)
     {
-        //_isDialogVisible = false;
         ChangeAllWithColor(colorSwitcher.ChangeColors, colorSwitcher.ToState ? State.Active : State.Inactive);
         await Callback();
     }
 
     private async Task DialogAllButtonClicked(State toState)
     {
-        //_isDialogVisible = false;
         foreach (var btn in _buttonModels.AllButtons)
         {
             btn.State = btn.State != State.Dummy ? toState : btn.State;
@@ -65,7 +79,7 @@
         {
             if (btn.State == State.Active)
             {
-                var color = btn.Color == "#212121" ? "#FFFFFF" : btn.Color;
+                var color = btn.Color == "#212121" ? "#909090" : btn.Color;
                 dict.Add(btn.Pin, color);
             }
             else if (btn.State == State.Inactive)
@@ -97,12 +111,9 @@
 
     private void ChangeAllWithColor(string color, State toState)
     {
-        foreach (var btn in _buttonModels.AllButtons)
+        foreach (var btn in _buttonModels.AllButtons.Where(btn => btn.Color == color))
         {
-            if (btn.Color == color)
-            {
-                btn.State = btn.State != State.Dummy ? toState : btn.State;
-            }
+            btn.State = btn.State != State.Dummy ? toState : btn.State;
         }
     }
 }

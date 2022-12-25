@@ -6,18 +6,18 @@
 <MudDialog @bind-IsVisible="IsVisible">
     <DialogContent>
         <div class="d-flex flex-column py-1" style="height: 80vh;">
-            <DialogButton Color="@CustomColor.White" Label="alle" OnActiveStateChanged="@ActivateAllButtonClicked" />
-            <DialogButton Color="@CustomColor.Red" Label="Alkalimetalle" OnActiveStateChanged="@OnColorActivated" />
-            <DialogButton Color="@CustomColor.Orange" Label="Erdalkalimetalle" OnActiveStateChanged="@OnColorActivated" />
-            <DialogButton Color="@CustomColor.Lime" Label="Übergangsmetalle" OnActiveStateChanged="@OnColorActivated" />
-            <DialogButton Color="@CustomColor.Pink" Label="Lanthanoide" OnActiveStateChanged="@OnColorActivated" />
-            <DialogButton Color="@CustomColor.Purple" Label="Actinoide" OnActiveStateChanged="@OnColorActivated" />
-            <DialogButton Color="@CustomColor.LightGreen" Label="Metalle" OnActiveStateChanged="@OnColorActivated" />
-            <DialogButton Color="@CustomColor.Green" Label="Halbmetalle" OnActiveStateChanged="@OnColorActivated" />
-            <DialogButton Color="@CustomColor.LightBlue" Label="Nichtmetalle" OnActiveStateChanged="@OnColorActivated" />
-            <DialogButton Color="@CustomColor.Blue" Label="Halogene" OnActiveStateChanged="@OnColorActivated" />
-            <DialogButton Color="@CustomColor.Grey" Label="Edelgase" OnActiveStateChanged="@OnColorActivated" />
-            <DialogButton Color="@CustomColor.BlueGrey" Label="Unbekannt" OnActiveStateChanged="@OnColorActivated" />
+            <DialogButton Buttons="@Buttons" Color="@CustomColor.White" Label="alle" OnActiveStateChanged="async (x) => await ActivateAllButtonClicked(x)" />
+            <DialogButton Buttons="@Buttons" Color="@CustomColor.Red" Label="Alkalimetalle" OnActiveStateChanged="async (x) => await ActivateButtonClicked(x)" />
+            <DialogButton Buttons="@Buttons" Color="@CustomColor.Orange" Label="Erdalkalimetalle" OnActiveStateChanged="async (x) => await ActivateButtonClicked(x)" />
+            <DialogButton Buttons="@Buttons" Color="@CustomColor.Lime" Label="Übergangsmetalle" OnActiveStateChanged="async (x) => await ActivateButtonClicked(x)" />
+            <DialogButton Buttons="@Buttons" Color="@CustomColor.Brown" Label="Lanthanoide" OnActiveStateChanged="async (x) => await ActivateButtonClicked(x)" />
+            <DialogButton Buttons="@Buttons" Color="@CustomColor.Purple" Label="Actinoide" OnActiveStateChanged="async (x) => await ActivateButtonClicked(x)" />
+            <DialogButton Buttons="@Buttons" Color="@CustomColor.LightGreen" Label="Metalle" OnActiveStateChanged="async (x) => await ActivateButtonClicked(x)" />
+            <DialogButton Buttons="@Buttons" Color="@CustomColor.Green" Label="Halbmetalle" OnActiveStateChanged="async (x) => await ActivateButtonClicked(x)" />
+            <DialogButton Buttons="@Buttons" Color="@CustomColor.LightBlue" Label="Nichtmetalle" OnActiveStateChanged="async (x) => await ActivateButtonClicked(x)" />
+            <DialogButton Buttons="@Buttons" Color="@CustomColor.Cyan" Label="Halogene" OnActiveStateChanged="async (x) => await ActivateButtonClicked(x)" />
+            <DialogButton Buttons="@Buttons" Color="@CustomColor.Amber" Label="Edelgase" OnActiveStateChanged="async (x) => await ActivateButtonClicked(x)" />
+            <DialogButton Buttons="@Buttons" Color="@CustomColor.BlueGrey" Label="Unbekannt" OnActiveStateChanged="async (x) => await ActivateButtonClicked(x)" />
         </div>
     </DialogContent>
     <DialogActions>
@@ -37,10 +37,15 @@
     [Parameter] public EventCallback<ColorSwitcher> OnColorActivated { get; set; }
     [Parameter] public EventCallback<State> OnColorsActivated { get; set; }
     [Parameter] public EventCallback OnClosed { get; set; }
+    [Parameter] public List<ButtonStateModel> Buttons { get; set; }
 
-
-    private void ActivateAllButtonClicked(ColorSwitcher colorSwitcher)
+    private async Task ActivateAllButtonClicked(ColorSwitcher colorSwitcher)
     {
-        OnColorsActivated.InvokeAsync(colorSwitcher.ToState ? State.Active : State.Inactive);
+        await OnColorsActivated.InvokeAsync(colorSwitcher.ToState ? State.Active : State.Inactive);
+    }
+    
+    private async Task ActivateButtonClicked(ColorSwitcher colorSwitcher)
+    {
+        await OnColorActivated.InvokeAsync(colorSwitcher);
     }
 }

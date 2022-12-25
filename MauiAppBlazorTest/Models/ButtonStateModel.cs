@@ -25,10 +25,10 @@ public class ButtonStateModel
         State = state;
     }
 
-    public Variant GetVariant()
-    {
-        return State == State.Active ? Variant.Filled : Variant.Outlined;
-    }
+        public Variant GetVariant()
+        {
+            return State == State.Active ? Variant.Filled : Variant.Outlined;
+        }
 
     public string Style()
     {

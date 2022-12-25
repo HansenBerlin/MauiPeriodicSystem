@@ -8,7 +8,7 @@ public class ButtonGrid
         new(){IsHalfHeight = true, IsHalfWidth = true},
         new(State.Inactive, "1", 121) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 1, 1 }, new []{ 2, 1 }, new []{ 3, 1 }, new []{ 4, 1 }, new []{ 5, 1 }, new []{ 6, 1 }, new []{ 7, 1 }}},
         new(State.Inactive, "2", 122) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 2, 2 }, new []{ 3, 2 }, new []{ 4, 2 }, new []{ 5, 2 }, new []{ 6, 2 }, new []{ 7, 2 }}},
-        new(State.Inactive, "3", 123) {IsHalfHeight = true, ActivatesElementsWithColors = new(){CustomColor.Pink, CustomColor.Purple}, ActivatesElementsAtIndex = new List<int[]> { new []{ 4, 3 }, new []{ 5, 3 }, new []{ 6, 3 }, new []{ 7, 3 }}},
+        new(State.Inactive, "3", 123) {IsHalfHeight = true, ActivatesElementsWithColors = new(){CustomColor.Brown, CustomColor.Purple}, ActivatesElementsAtIndex = new List<int[]> { new []{ 4, 3 }, new []{ 5, 3 }, new []{ 6, 3 }, new []{ 7, 3 }}},
         new(State.Inactive, "4", 124) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 4, 4 }, new []{ 5, 4 }, new []{ 6, 4 }, new []{ 7, 4 }}},
         new(State.Inactive, "5", 125) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 4, 5 }, new []{ 5, 5 }, new []{ 6, 5 }, new []{ 7, 5 }}},
         new(State.Inactive, "6", 126) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 4, 6 }, new []{ 5, 6 }, new []{ 6, 6 }, new []{ 7, 6 }}},
@@ -30,7 +30,7 @@ public class ButtonGrid
         new(State.Inactive, "1", 120){IsHalfWidth = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 1, 1 }, new []{ 1, 18 }}},
         new(State.Inactive, "H", 119, CustomColor.LightBlue),
         new(), new(), new(), new(), new(), new(), new(), new(), new(), new(), new(), new(), new(), new(), new(), new(),
-        new(State.Inactive, "He", 139, CustomColor.Grey)
+        new(State.Inactive, "He", 139, CustomColor.Amber)
     };
 
     private readonly ButtonStateModel[] _rowThree = {
@@ -43,8 +43,8 @@ public class ButtonGrid
         new(State.Inactive, "C", 141, CustomColor.LightBlue),
         new(State.Inactive, "N", 142, CustomColor.LightBlue),
         new(State.Inactive, "O", 143, CustomColor.LightBlue),
-        new(State.Inactive, "F", 144, CustomColor.Blue),
-        new(State.Inactive, "Ne", 145, CustomColor.Grey),
+        new(State.Inactive, "F", 144, CustomColor.Cyan),
+        new(State.Inactive, "Ne", 145, CustomColor.Amber),
     };
 
     private readonly ButtonStateModel[] _rowFour = {
@@ -57,8 +57,8 @@ public class ButtonGrid
         new(State.Inactive, "Si", 111, CustomColor.Green),
         new(State.Inactive, "P", 110, CustomColor.LightBlue),
         new(State.Inactive, "S", 109, CustomColor.LightBlue),
-        new(State.Inactive, "Cl", 108, CustomColor.Blue),
-        new(State.Inactive, "Ar", 107, CustomColor.Grey)
+        new(State.Inactive, "Cl", 108, CustomColor.Cyan),
+        new(State.Inactive, "Ar", 107, CustomColor.Amber)
     };
 
     private readonly ButtonStateModel[] _rowFive = {
@@ -81,8 +81,8 @@ public class ButtonGrid
         new(State.Inactive, "Ge", 102, CustomColor.Green),
         new(State.Inactive, "As", 103, CustomColor.Green),
         new(State.Inactive, "Se", 104, CustomColor.LightBlue),
-        new(State.Inactive, "Br", 105, CustomColor.Blue),
-        new(State.Inactive, "Kr", 106, CustomColor.Grey)
+        new(State.Inactive, "Br", 105, CustomColor.Cyan),
+        new(State.Inactive, "Kr", 106, CustomColor.Amber)
     };
 
     private readonly ButtonStateModel[] _rowSix = {
@@ -105,17 +105,17 @@ public class ButtonGrid
         new(State.Inactive, "Sn", 73, CustomColor.LightGreen),
         new(State.Inactive, "Sb", 72, CustomColor.Green),
         new(State.Inactive, "Te", 71, CustomColor.Green),
-        new(State.Inactive, "I", 70, CustomColor.Blue),
-        new(State.Inactive, "Xe", 69, CustomColor.Grey)
+        new(State.Inactive, "I", 70, CustomColor.Cyan),
+        new(State.Inactive, "Xe", 69, CustomColor.Amber)
     };
 
     private readonly ButtonStateModel[] _rowSeven = {
-        new(State.Inactive, "6", 50) {IsHalfWidth = true, ActivatesElementsWithColors = new(){CustomColor.Pink}, ActivatesElementsAtIndex = new List<int[]> { new []{ 6, 1 }, new []{ 6, 2 }, new []{ 6, 3 }, new []{ 6, 4 },
+        new(State.Inactive, "6", 50) {IsHalfWidth = true, ActivatesElementsWithColors = new(){CustomColor.Brown}, ActivatesElementsAtIndex = new List<int[]> { new []{ 6, 1 }, new []{ 6, 2 }, new []{ 6, 3 }, new []{ 6, 4 },
             new []{ 6, 5 }, new []{ 6, 6 }, new []{ 6, 7 }, new []{ 6, 8 }, new []{ 6, 9 }, new []{ 6, 10 }, new []{ 6, 11 }, new []{ 6, 12 },
             new []{ 6, 13 }, new []{ 6, 14 }, new []{ 6, 15 }, new []{ 6, 16 }, new []{ 6, 17 }, new []{ 6, 18 }}},
         new(State.Inactive, "Cs", 51, CustomColor.Red),
         new(State.Inactive, "Ba", 52, CustomColor.Orange),
-        new(State.Inactive, "*", 53, CustomColor.Pink){ActivatesElementsWithColors = new(){CustomColor.Pink}},
+        new(State.Inactive, "*", 53, CustomColor.Brown){ActivatesElementsWithColors = new(){CustomColor.Brown}},
         new(State.Inactive, "Hf", 54, CustomColor.Lime),
         new(State.Inactive, "Ta", 55, CustomColor.Lime),
         new(State.Inactive, "W", 56, CustomColor.Lime),
@@ -129,8 +129,8 @@ public class ButtonGrid
         new(State.Inactive, "Pb", 64, CustomColor.Green),
         new(State.Inactive, "Bi", 65, CustomColor.Green),
         new(State.Inactive, "Po", 66, CustomColor.Green),
-        new(State.Inactive, "At", 67, CustomColor.Blue),
-        new(State.Inactive, "Rn", 68, CustomColor.Grey)
+        new(State.Inactive, "At", 67, CustomColor.Cyan),
+        new(State.Inactive, "Rn", 68, CustomColor.Amber)
     };
 
     private readonly ButtonStateModel[] _rowEight = {
@@ -167,21 +167,21 @@ public class ButtonGrid
 
     private readonly ButtonStateModel[] _rowTen = {
         new() {IsHalfWidth = true}, new(), new(),
-        new(State.Inactive, "La", 16, CustomColor.Pink),
-        new(State.Inactive, "Ce", 17, CustomColor.Pink),
-        new(State.Inactive, "Pr", 18, CustomColor.Pink),
-        new(State.Inactive, "Nd", 19, CustomColor.Pink),
-        new(State.Inactive, "Pm", 20, CustomColor.Pink),
-        new(State.Inactive, "Sm", 21, CustomColor.Pink),
-        new(State.Inactive, "Eu", 22, CustomColor.Pink),
-        new(State.Inactive, "Gd", 23, CustomColor.Pink),
-        new(State.Inactive, "Tb", 24, CustomColor.Pink),
-        new(State.Inactive, "Dy", 25, CustomColor.Pink),
-        new(State.Inactive, "Ho", 26, CustomColor.Pink),
-        new(State.Inactive, "Er", 27, CustomColor.Pink),
-        new(State.Inactive, "Tm", 28, CustomColor.Pink),
-        new(State.Inactive, "Yb", 29, CustomColor.Pink),
-        new(State.Inactive, "Lu", 30, CustomColor.Pink),
+        new(State.Inactive, "La", 16, CustomColor.Brown),
+        new(State.Inactive, "Ce", 17, CustomColor.Brown),
+        new(State.Inactive, "Pr", 18, CustomColor.Brown),
+        new(State.Inactive, "Nd", 19, CustomColor.Brown),
+        new(State.Inactive, "Pm", 20, CustomColor.Brown),
+        new(State.Inactive, "Sm", 21, CustomColor.Brown),
+        new(State.Inactive, "Eu", 22, CustomColor.Brown),
+        new(State.Inactive, "Gd", 23, CustomColor.Brown),
+        new(State.Inactive, "Tb", 24, CustomColor.Brown),
+        new(State.Inactive, "Dy", 25, CustomColor.Brown),
+        new(State.Inactive, "Ho", 26, CustomColor.Brown),
+        new(State.Inactive, "Er", 27, CustomColor.Brown),
+        new(State.Inactive, "Tm", 28, CustomColor.Brown),
+        new(State.Inactive, "Yb", 29, CustomColor.Brown),
+        new(State.Inactive, "Lu", 30, CustomColor.Brown),
         new()
     };
 
