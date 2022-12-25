@@ -1,0 +1,36 @@
+﻿@using MauiAppBlazorTest.Values
+@using MauiAppBlazorTest.Models
+@namespace MauiAppBlazorTest.Components
+
+<MudButton Variant="@GetVariant()" Style="@ButtonColorStyle(Color)" OnClick="OnButtonClickedCallback">@Label</MudButton>
+
+@code {
+
+    [Parameter] public string Color { get; set; }
+    [Parameter] public string Label { get; set; }
+    [Parameter] public EventCallback<ColorSwitcher> OnActiveStateChanged { get; set; }
+
+
+    private bool _isActive;
+    private const string BaseStyle = "margin: 5px;";
+
+    private string ButtonColorStyle(string color)
+    {
+        return BaseStyle + (_isActive ?
+            $"background-color: {color}; color: {(color == CustomColor.White ? CustomColor.DarkGrey : CustomColor.White)}" :
+            $"background-color: transparent; color: {color}; border-color: {color};");
+    }
+
+    private Variant GetVariant()
+    {
+        return _isActive ? Variant.Filled : Variant.Outlined;
+    }
+
+    private void OnButtonClickedCallback()
+    {
+        _isActive = !_isActive;
+        var colorSwitcher = new ColorSwitcher(Color, _isActive);
+        OnActiveStateChanged.InvokeAsync(colorSwitcher);
+    }
+
+}

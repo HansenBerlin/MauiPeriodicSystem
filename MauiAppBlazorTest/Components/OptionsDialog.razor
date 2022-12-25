@@ -1,0 +1,46 @@
+﻿@using MauiAppBlazorTest.Values
+@using MauiAppBlazorTest.Models
+@namespace MauiAppBlazorTest.Components
+
+
+<MudDialog @bind-IsVisible="IsVisible">
+    <DialogContent>
+        <div class="d-flex flex-column py-1" style="height: 80vh;">
+            <DialogButton Color="@CustomColor.White" Label="alle" OnActiveStateChanged="@ActivateAllButtonClicked" />
+            <DialogButton Color="@CustomColor.Red" Label="Alkalimetalle" OnActiveStateChanged="@OnColorActivated" />
+            <DialogButton Color="@CustomColor.Orange" Label="Erdalkalimetalle" OnActiveStateChanged="@OnColorActivated" />
+            <DialogButton Color="@CustomColor.Lime" Label="Übergangsmetalle" OnActiveStateChanged="@OnColorActivated" />
+            <DialogButton Color="@CustomColor.Pink" Label="Lanthanoide" OnActiveStateChanged="@OnColorActivated" />
+            <DialogButton Color="@CustomColor.Purple" Label="Actinoide" OnActiveStateChanged="@OnColorActivated" />
+            <DialogButton Color="@CustomColor.LightGreen" Label="Metalle" OnActiveStateChanged="@OnColorActivated" />
+            <DialogButton Color="@CustomColor.Green" Label="Halbmetalle" OnActiveStateChanged="@OnColorActivated" />
+            <DialogButton Color="@CustomColor.LightBlue" Label="Nichtmetalle" OnActiveStateChanged="@OnColorActivated" />
+            <DialogButton Color="@CustomColor.Blue" Label="Halogene" OnActiveStateChanged="@OnColorActivated" />
+            <DialogButton Color="@CustomColor.Grey" Label="Edelgase" OnActiveStateChanged="@OnColorActivated" />
+            <DialogButton Color="@CustomColor.BlueGrey" Label="Unbekannt" OnActiveStateChanged="@OnColorActivated" />
+        </div>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Style="margin: auto;" Color="Color.Primary" OnClick="Close">schließen</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+
+    void Close()
+    {
+        IsVisible = false;
+        OnClosed.InvokeAsync();
+    }
+
+    [Parameter] public bool IsVisible { get; set; }
+    [Parameter] public EventCallback<ColorSwitcher> OnColorActivated { get; set; }
+    [Parameter] public EventCallback<State> OnColorsActivated { get; set; }
+    [Parameter] public EventCallback OnClosed { get; set; }
+
+
+    private void ActivateAllButtonClicked(ColorSwitcher colorSwitcher)
+    {
+        OnColorsActivated.InvokeAsync(colorSwitcher.ToState ? State.Active : State.Inactive);
+    }
+}

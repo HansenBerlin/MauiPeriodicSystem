@@ -1,0 +1,33 @@
+﻿@using MauiAppBlazorTest.Models
+@inject HttpClient HttpClient;
+@namespace MauiAppBlazorTest.Components
+
+
+@if (Model.State != State.Dummy)
+{
+    <MudButton Variant="Model.GetVariant()"
+           Style="@Model.Style()"
+           @onclick="async () => { await OnToggledChanged(); }">
+        @Model.Label
+    </MudButton>
+}
+else
+{
+    <div style="@Model.Style()"></div>
+}
+@code {
+    string startEp = "http://192.168.10.60:5000";
+    string stopEp = "http://192.168.10.60:5000";
+
+    [Parameter] public ButtonStateModel Model { get; set; }
+    [Parameter] public EventCallback<ButtonStateModel> OnModelChanged { get; set; }
+
+    private async Task OnToggledChanged()
+    {
+        if (Model.State == State.Dummy)
+        {
+            return;
+        }
+        await OnModelChanged.InvokeAsync(Model);
+    }
+}

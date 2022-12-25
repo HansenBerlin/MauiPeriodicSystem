@@ -1,0 +1,108 @@
+﻿@page "/"
+@using MauiAppBlazorTest.Components
+@using MauiAppBlazorTest.Models
+@using System.Text.Json
+@using System.Text
+@using System.Net.Mime
+@inject HttpClient HttpClient;
+
+<div style="padding-left: 2vw; padding-right: 2vw; padding-top: 2vw;">
+    @foreach (var row in _buttonModels.Grid)
+    {
+        <div style="justify-content: center; display: flex;">
+            @foreach (var model in row)
+            {
+                <SwitchButton Model="model" OnModelChanged="SingleButtonClicked" />
+            }
+        </div>
+    }
+    <OptionsDialog IsVisible="_isDialogVisible"
+                   OnColorActivated="DialogColorButtonClicked"
+                   OnColorsActivated="DialogAllButtonClicked"
+                   OnClosed="() => { _isDialogVisible = false; }" />
+</div>
+<MudButton Style="position: absolute; width: 17.9vw; height: 4.3vw; top: 0; margin: 8.8vw auto auto 33.2vw; font-size: 1.2vw; background-color: transparent; border-color: black;"
+           OnClick="OpenDialog"
+           Variant="Variant.Filled"
+           Color="Color.Primary">
+    Elementgruppen
+</MudButton>
+
+@code {
+
+    const string EndpointMultiple = "http://192.168.10.60:5000/multiple";
+    private readonly ButtonGrid _buttonModels = new();
+    bool _isDialogVisible;
+
+    private void OpenDialog()
+    {
+        _isDialogVisible = !_isDialogVisible;
+        //var reference = DialogService.Show<OptionsDialog>("Options Dialog");
+
+    }
+
+    private async Task DialogColorButtonClicked(ColorSwitcher colorSwitcher)
+    {
+        //_isDialogVisible = false;
+        ChangeAllWithColor(colorSwitcher.ChangeColors, colorSwitcher.ToState ? State.Active : State.Inactive);
+        await Callback();
+    }
+
+    private async Task DialogAllButtonClicked(State toState)
+    {
+        //_isDialogVisible = false;
+        foreach (var btn in _buttonModels.AllButtons)
+        {
+            btn.State = btn.State != State.Dummy ? toState : btn.State;
+        }
+        await Callback();
+    }
+
+    private async Task Callback()
+    {
+        var dict = new Dictionary<int, string>();
+        foreach (var btn in _buttonModels.AllButtons)
+        {
+            if (btn.State == State.Active)
+            {
+                var color = btn.Color == "#212121" ? "#FFFFFF" : btn.Color;
+                dict.Add(btn.Pin, color);
+            }
+            else if (btn.State == State.Inactive)
+            {
+                dict.Add(btn.Pin, "#000000");
+            }            
+        }
+        var json = new StringContent(
+            JsonSerializer.Serialize(dict),
+            Encoding.UTF8,
+            MediaTypeNames.Application.Json);
+        await HttpClient.PostAsync(EndpointMultiple, json);
+    }
+
+    private async Task SingleButtonClicked(ButtonStateModel model)
+    {
+        model.State = model.State == State.Active ? State.Inactive : State.Active;
+
+        foreach (var rowcol in model.ActivatesElementsAtIndex)
+        {
+            _buttonModels.Grid[rowcol[0]][rowcol[1]].State = model.State;
+        }
+        foreach (var color in model.ActivatesElementsWithColors)
+        {
+            ChangeAllWithColor(color, model.State);
+        }
+        await Callback();
+    }
+
+    private void ChangeAllWithColor(string color, State toState)
+    {
+        foreach (var btn in _buttonModels.AllButtons)
+        {
+            if (btn.Color == color)
+            {
+                btn.State = btn.State != State.Dummy ? toState : btn.State;
+            }
+        }
+    }
+}
