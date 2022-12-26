@@ -2,211 +2,12 @@
 
 namespace MauiAppBlazorTest.Models;
 
-public class ButtonGrid
+public class ButtonGrid : IButtonGrid
 {
-    private readonly ButtonStateModel[] _rowOne = {
-        new(){IsHalfHeight = true, IsHalfWidth = true},
-        new(State.Inactive, "1", 121) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 1, 1 }, new []{ 2, 1 }, new []{ 3, 1 }, new []{ 4, 1 }, new []{ 5, 1 }, new []{ 6, 1 }, new []{ 7, 1 }}},
-        new(State.Inactive, "2", 122) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 2, 2 }, new []{ 3, 2 }, new []{ 4, 2 }, new []{ 5, 2 }, new []{ 6, 2 }, new []{ 7, 2 }}},
-        new(State.Inactive, "3", 123) {IsHalfHeight = true, ActivatesElementsWithColors = new(){CustomColor.Brown, CustomColor.Purple}, ActivatesElementsAtIndex = new List<int[]> { new []{ 4, 3 }, new []{ 5, 3 }, new []{ 6, 3 }, new []{ 7, 3 }}},
-        new(State.Inactive, "4", 124) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 4, 4 }, new []{ 5, 4 }, new []{ 6, 4 }, new []{ 7, 4 }}},
-        new(State.Inactive, "5", 125) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 4, 5 }, new []{ 5, 5 }, new []{ 6, 5 }, new []{ 7, 5 }}},
-        new(State.Inactive, "6", 126) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 4, 6 }, new []{ 5, 6 }, new []{ 6, 6 }, new []{ 7, 6 }}},
-        new(State.Inactive, "7", 127) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 4, 7 }, new []{ 5, 7 }, new []{ 6, 7 }, new []{ 7, 7 }}},
-        new(State.Inactive, "8", 128) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 4, 8 }, new []{ 5, 8 }, new []{ 6, 8 }, new []{ 7, 8 }}},
-        new(State.Inactive, "9", 129) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 4, 9 }, new []{ 5, 9 }, new []{ 6, 9 }, new []{ 7, 9 }}},
-        new(State.Inactive, "10", 130) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 4, 10 }, new []{ 5, 10 }, new []{ 6, 10 }, new []{ 7, 10 }}},
-        new(State.Inactive, "11", 131) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 4, 11 }, new []{ 5, 11 }, new []{ 6, 11 }, new []{ 7, 11 }}},
-        new(State.Inactive, "12", 132) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 4, 12 }, new []{ 5, 12 }, new []{ 6, 12 }, new []{ 7, 12 }}},
-        new(State.Inactive, "13", 133) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 2, 13 }, new []{ 3, 13 }, new []{ 4, 13 }, new []{ 5, 13 }, new []{ 6, 13 }, new []{ 7, 13 }}},
-        new(State.Inactive, "14", 134) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 2, 14 }, new []{ 3, 14 }, new []{ 4, 14 }, new []{ 5, 14 }, new []{ 6, 14 }, new []{ 7, 14 }}},
-        new(State.Inactive, "15", 135) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 2, 15 }, new []{ 3, 15 }, new []{ 4, 15 }, new []{ 5, 15 }, new []{ 6, 15 }, new []{ 7, 15 }}},
-        new(State.Inactive, "16", 136) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 2, 16 }, new []{ 3, 16 }, new []{ 4, 16 }, new []{ 5, 16 }, new []{ 6, 16 }, new []{ 7, 16 }}},
-        new(State.Inactive, "17", 137) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 2, 17 }, new []{ 3, 17 }, new []{ 4, 17 }, new []{ 5, 17 }, new []{ 6, 17 }, new []{ 7, 17 }}},
-        new(State.Inactive, "18", 138) {IsHalfHeight = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 1, 18 }, new []{ 2, 18 }, new []{ 3, 18 }, new []{ 4, 18 }, new []{ 5, 18 }, new []{ 6, 18 }, new []{ 7, 18 }}}
-    };
-
-    private readonly ButtonStateModel[] _rowTwo = {
-        new(State.Inactive, "1", 120){IsHalfWidth = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 1, 1 }, new []{ 1, 18 }}},
-        new(State.Inactive, "H", 119, CustomColor.LightBlue),
-        new(), new(), new(), new(), new(), new(), new(), new(), new(), new(), new(), new(), new(), new(), new(), new(),
-        new(State.Inactive, "He", 139, CustomColor.Amber)
-    };
-
-    private readonly ButtonStateModel[] _rowThree = {
-        new(State.Inactive, "2", 116) {IsHalfWidth = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 2, 1 }, new []{ 2, 2 }, new []{ 2, 13 },
-            new []{ 2, 14 }, new []{ 2, 15 }, new []{ 2, 16 }, new []{ 2, 17 }, new []{ 2, 18 }}},
-        new(State.Inactive, "Li", 117, CustomColor.Red),
-        new(State.Inactive, "Be", 118, CustomColor.Orange),
-        new(), new(), new(), new(), new(), new(), new(), new(), new(), new(),
-        new(State.Inactive, "B", 140, CustomColor.Green),
-        new(State.Inactive, "C", 141, CustomColor.LightBlue),
-        new(State.Inactive, "N", 142, CustomColor.LightBlue),
-        new(State.Inactive, "O", 143, CustomColor.LightBlue),
-        new(State.Inactive, "F", 144, CustomColor.Cyan),
-        new(State.Inactive, "Ne", 145, CustomColor.Amber),
-    };
-
-    private readonly ButtonStateModel[] _rowFour = {
-        new(State.Inactive, "3", 115) {IsHalfWidth = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 3, 1 }, new []{ 3, 2 }, new []{ 3, 13 },
-            new []{ 3, 14 }, new []{ 3, 15 }, new []{ 3, 16 }, new []{ 3, 17 }, new []{ 3, 18 }}},
-        new(State.Inactive, "Na", 114, CustomColor.Red),
-        new(State.Inactive, "Mg", 113, CustomColor.Orange),
-        new(), new(), new(), new(), new(), new(), new(), new(), new(), new(),
-        new(State.Inactive, "Al", 112, CustomColor.LightGreen),
-        new(State.Inactive, "Si", 111, CustomColor.Green),
-        new(State.Inactive, "P", 110, CustomColor.LightBlue),
-        new(State.Inactive, "S", 109, CustomColor.LightBlue),
-        new(State.Inactive, "Cl", 108, CustomColor.Cyan),
-        new(State.Inactive, "Ar", 107, CustomColor.Amber)
-    };
-
-    private readonly ButtonStateModel[] _rowFive = {
-        new(State.Inactive, "4", 88) {IsHalfWidth = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 4, 1 }, new []{ 4, 2 }, new []{ 4, 3 }, new []{ 4, 4 },
-            new []{ 4, 5 }, new []{ 4, 6 }, new []{ 4, 7 }, new []{ 4, 8 }, new []{ 4, 9 }, new []{ 4, 10 }, new []{ 4, 11 }, new []{ 4, 12 },
-            new []{ 4, 13 }, new []{ 4, 14 }, new []{ 4, 15 }, new []{ 4, 16 }, new []{ 4, 17 }, new []{ 4, 18 }}},
-        new(State.Inactive, "K", 89, CustomColor.Red),
-        new(State.Inactive, "Ca", 90, CustomColor.Orange),
-        new(State.Inactive, "Sc", 91, CustomColor.Lime),
-        new(State.Inactive, "Ti", 92, CustomColor.Lime),
-        new(State.Inactive, "V", 93, CustomColor.Lime),
-        new(State.Inactive, "Cr", 94, CustomColor.Lime),
-        new(State.Inactive, "Mn", 95, CustomColor.Lime),
-        new(State.Inactive, "Fe", 96, CustomColor.Lime),
-        new(State.Inactive, "Co", 97, CustomColor.Lime),
-        new(State.Inactive, "Ni", 98, CustomColor.Lime),
-        new(State.Inactive, "Cu", 99, CustomColor.Lime),
-        new(State.Inactive, "Zn", 100, CustomColor.Lime),
-        new(State.Inactive, "Ga", 101, CustomColor.LightGreen),
-        new(State.Inactive, "Ge", 102, CustomColor.Green),
-        new(State.Inactive, "As", 103, CustomColor.Green),
-        new(State.Inactive, "Se", 104, CustomColor.LightBlue),
-        new(State.Inactive, "Br", 105, CustomColor.Cyan),
-        new(State.Inactive, "Kr", 106, CustomColor.Amber)
-    };
-
-    private readonly ButtonStateModel[] _rowSix = {
-        new(State.Inactive, "5", 87) {IsHalfWidth = true, ActivatesElementsAtIndex = new List<int[]> { new []{ 5, 1 }, new []{ 5, 2 }, new []{ 5, 3 }, new []{ 5, 4 },
-            new []{ 5, 5 }, new []{ 5, 6 }, new []{ 5, 7 }, new []{ 5, 8 }, new []{ 5, 9 }, new []{ 5, 10 }, new []{ 5, 11 }, new []{ 5, 12 },
-            new []{ 5, 13 }, new []{ 5, 14 }, new []{ 5, 15 }, new []{ 5, 16 }, new []{ 5, 17 }, new []{ 5, 18 }}},
-        new(State.Inactive, "Rb", 86, CustomColor.Red),
-        new(State.Inactive, "Sr", 85, CustomColor.Orange),
-        new(State.Inactive, "Y", 84, CustomColor.Lime),
-        new(State.Inactive, "Zr", 83, CustomColor.Lime),
-        new(State.Inactive, "Nb", 82, CustomColor.Lime),
-        new(State.Inactive, "Mo", 81, CustomColor.Lime),
-        new(State.Inactive, "Tc", 80, CustomColor.Lime),
-        new(State.Inactive, "Ru", 79, CustomColor.Lime),
-        new(State.Inactive, "Rh", 78, CustomColor.Lime),
-        new(State.Inactive, "Pd", 77, CustomColor.Lime),
-        new(State.Inactive, "Ag", 76, CustomColor.Lime),
-        new(State.Inactive, "Cd", 75, CustomColor.Lime),
-        new(State.Inactive, "In", 74, CustomColor.LightGreen),
-        new(State.Inactive, "Sn", 73, CustomColor.LightGreen),
-        new(State.Inactive, "Sb", 72, CustomColor.Green),
-        new(State.Inactive, "Te", 71, CustomColor.Green),
-        new(State.Inactive, "I", 70, CustomColor.Cyan),
-        new(State.Inactive, "Xe", 69, CustomColor.Amber)
-    };
-
-    private readonly ButtonStateModel[] _rowSeven = {
-        new(State.Inactive, "6", 50) {IsHalfWidth = true, ActivatesElementsWithColors = new(){CustomColor.Brown}, ActivatesElementsAtIndex = new List<int[]> { new []{ 6, 1 }, new []{ 6, 2 }, new []{ 6, 3 }, new []{ 6, 4 },
-            new []{ 6, 5 }, new []{ 6, 6 }, new []{ 6, 7 }, new []{ 6, 8 }, new []{ 6, 9 }, new []{ 6, 10 }, new []{ 6, 11 }, new []{ 6, 12 },
-            new []{ 6, 13 }, new []{ 6, 14 }, new []{ 6, 15 }, new []{ 6, 16 }, new []{ 6, 17 }, new []{ 6, 18 }}},
-        new(State.Inactive, "Cs", 51, CustomColor.Red),
-        new(State.Inactive, "Ba", 52, CustomColor.Orange),
-        new(State.Inactive, "*", 53, CustomColor.Brown){ActivatesElementsWithColors = new(){CustomColor.Brown}},
-        new(State.Inactive, "Hf", 54, CustomColor.Lime),
-        new(State.Inactive, "Ta", 55, CustomColor.Lime),
-        new(State.Inactive, "W", 56, CustomColor.Lime),
-        new(State.Inactive, "Re", 57, CustomColor.Lime),
-        new(State.Inactive, "Os", 58, CustomColor.Lime),
-        new(State.Inactive, "Ir", 59, CustomColor.Lime),
-        new(State.Inactive, "Pt", 60, CustomColor.Lime),
-        new(State.Inactive, "Au", 61, CustomColor.Lime),
-        new(State.Inactive, "Hg", 62, CustomColor.Lime),
-        new(State.Inactive, "Ti", 63, CustomColor.Green),
-        new(State.Inactive, "Pb", 64, CustomColor.Green),
-        new(State.Inactive, "Bi", 65, CustomColor.Green),
-        new(State.Inactive, "Po", 66, CustomColor.Green),
-        new(State.Inactive, "At", 67, CustomColor.Cyan),
-        new(State.Inactive, "Rn", 68, CustomColor.Amber)
-    };
-
-    private readonly ButtonStateModel[] _rowEight = {
-        new(State.Inactive, "7", 49) {IsHalfWidth = true, ActivatesElementsWithColors = new(){CustomColor.Purple}, ActivatesElementsAtIndex = new List<int[]> { new []{ 7, 1 }, new []{ 7, 2 }, new []{ 7, 3 }, new []{ 7, 4 },
-            new []{ 7, 5 }, new []{ 7, 6 }, new []{ 7, 7 }, new []{ 7, 8 }, new []{ 7, 9 }, new []{ 7, 10 }, new []{ 7, 11 }, new []{ 7, 12 },
-            new []{ 7, 13 }, new []{ 7, 14 }, new []{ 7, 15 }, new []{ 7, 16 }, new []{ 7, 17 }, new []{ 7, 18 }}},
-        new(State.Inactive, "Fr", 48, CustomColor.Red),
-        new(State.Inactive, "Ra", 47, CustomColor.Orange),
-        new(State.Inactive, "**", 46, CustomColor.Purple){ActivatesElementsWithColors = new(){CustomColor.Purple}},
-        new(State.Inactive, "Rf", 45, CustomColor.Lime),
-        new(State.Inactive, "Db", 44, CustomColor.Lime),
-        new(State.Inactive, "Sg", 43, CustomColor.Lime),
-        new(State.Inactive, "Bh", 42, CustomColor.Lime),
-        new(State.Inactive, "Hs", 41, CustomColor.Lime),
-        new(State.Inactive, "Mt", 40, CustomColor.BlueGrey),
-        new(State.Inactive, "Ds", 39, CustomColor.BlueGrey),
-        new(State.Inactive, "Rg", 38, CustomColor.BlueGrey),
-        new(State.Inactive, "Cn", 37, CustomColor.Lime),
-        new(State.Inactive, "Nh", 36, CustomColor.BlueGrey),
-        new(State.Inactive, "Fl", 35, CustomColor.BlueGrey),
-        new(State.Inactive, "Mc", 34, CustomColor.BlueGrey),
-        new(State.Inactive, "Lv", 33, CustomColor.BlueGrey),
-        new(State.Inactive, "Ts", 32, CustomColor.BlueGrey),
-        new(State.Inactive, "Og", 31, CustomColor.BlueGrey)
-    };
-
-    private readonly ButtonStateModel[] _rowNine = {
-        new(){IsHalfHeight = true, IsHalfWidth = true}, new(){IsHalfHeight = true}, new(){IsHalfHeight = true},
-        new(){IsHalfHeight = true}, new(){IsHalfHeight = true}, new(){IsHalfHeight = true}, new(){IsHalfHeight = true},
-        new(){IsHalfHeight = true}, new(){IsHalfHeight = true}, new(){IsHalfHeight = true}, new(){IsHalfHeight = true},
-        new(){IsHalfHeight = true}, new(){IsHalfHeight = true}, new(){IsHalfHeight = true}, new(){IsHalfHeight = true},
-        new(){IsHalfHeight = true}, new(){IsHalfHeight = true}, new(){IsHalfHeight = true}, new(){IsHalfHeight = true}
-    };
-
-    private readonly ButtonStateModel[] _rowTen = {
-        new() {IsHalfWidth = true}, new(), new(),
-        new(State.Inactive, "La", 16, CustomColor.Brown),
-        new(State.Inactive, "Ce", 17, CustomColor.Brown),
-        new(State.Inactive, "Pr", 18, CustomColor.Brown),
-        new(State.Inactive, "Nd", 19, CustomColor.Brown),
-        new(State.Inactive, "Pm", 20, CustomColor.Brown),
-        new(State.Inactive, "Sm", 21, CustomColor.Brown),
-        new(State.Inactive, "Eu", 22, CustomColor.Brown),
-        new(State.Inactive, "Gd", 23, CustomColor.Brown),
-        new(State.Inactive, "Tb", 24, CustomColor.Brown),
-        new(State.Inactive, "Dy", 25, CustomColor.Brown),
-        new(State.Inactive, "Ho", 26, CustomColor.Brown),
-        new(State.Inactive, "Er", 27, CustomColor.Brown),
-        new(State.Inactive, "Tm", 28, CustomColor.Brown),
-        new(State.Inactive, "Yb", 29, CustomColor.Brown),
-        new(State.Inactive, "Lu", 30, CustomColor.Brown),
-        new()
-    };
-
-    private readonly ButtonStateModel[] _rowEleven = {
-        new(){IsHalfWidth = true}, new(), new(),
-        new(State.Inactive, "Ac", 15, CustomColor.Purple),
-        new(State.Inactive, "Th", 14, CustomColor.Purple),
-        new(State.Inactive, "Pa", 13, CustomColor.Purple),
-        new(State.Inactive, "U", 12, CustomColor.Purple),
-        new(State.Inactive, "Np", 11, CustomColor.Purple),
-        new(State.Inactive, "Pu", 10, CustomColor.Purple),
-        new(State.Inactive, "Am", 9, CustomColor.Purple),
-        new(State.Inactive, "Cm", 8, CustomColor.Purple),
-        new(State.Inactive, "Bk", 7, CustomColor.Purple),
-        new(State.Inactive, "Cf", 6, CustomColor.Purple),
-        new(State.Inactive, "Es", 5, CustomColor.Purple),
-        new(State.Inactive, "Fm", 4, CustomColor.Purple),
-        new(State.Inactive, "Md", 3, CustomColor.Purple),
-        new(State.Inactive, "No", 2, CustomColor.Purple),
-        new(State.Inactive, "Lr", 1, CustomColor.Purple),
-        new()
-    };
-
-    public ButtonStateModel[][] Grid { get; }
-    public List<ButtonStateModel> AllButtons { get; } = new();
+    public ElementButtonModel[][] Grid { get; }
+    public List<ElementButtonModel> ActivatorButtons { get; } = new();
+    public List<ElementButtonModel> PassiveButtons { get; } = new();
+    public List<ElementButtonModel> AllButtons { get; } = new();
 
     public ButtonGrid()
     {
@@ -218,11 +19,211 @@ public class ButtonGrid
         {
             foreach (var col in row)
             {
-                if (col.State != State.Dummy)
+                if (col.State == State.Dummy)
                 {
-                    AllButtons.Add(col);
+                    continue;
+                }
+                AllButtons.Add(col);
+                if (col.ActivatesTag != Tags.None)
+                {
+                    ActivatorButtons.Add(col);
+                }
+                if (col.OwnTags.Count > 0)
+                {
+                    PassiveButtons.Add(col);
                 }
             }
         }
     }
+    
+    private readonly ElementButtonModel[] _rowOne = {
+        new(){IsHalfHeight = true, IsHalfWidth = true},
+        new(State.Inactive, "1", 121) {IsHalfHeight = true, ActivatesTag = Tags.GroupOne},
+        new(State.Inactive, "2", 122) {IsHalfHeight = true, ActivatesTag = Tags.GroupTwo},
+        new(State.Inactive, "3", 123) {IsHalfHeight = true, ActivatesTag = Tags.GroupThree},
+        new(State.Inactive, "4", 124) {IsHalfHeight = true, ActivatesTag = Tags.GroupFour},
+        new(State.Inactive, "5", 125) {IsHalfHeight = true, ActivatesTag = Tags.GroupFive},
+        new(State.Inactive, "6", 126) {IsHalfHeight = true, ActivatesTag = Tags.GroupSix},
+        new(State.Inactive, "7", 127) {IsHalfHeight = true, ActivatesTag = Tags.GroupSeven},
+        new(State.Inactive, "8", 128) {IsHalfHeight = true, ActivatesTag = Tags.GroupEight},
+        new(State.Inactive, "9", 129) {IsHalfHeight = true, ActivatesTag = Tags.GroupNine},
+        new(State.Inactive, "10", 130) {IsHalfHeight = true, ActivatesTag = Tags.GroupTen},
+        new(State.Inactive, "11", 131) {IsHalfHeight = true, ActivatesTag = Tags.GroupEleven},
+        new(State.Inactive, "12", 132) {IsHalfHeight = true, ActivatesTag = Tags.GroupTwelve},
+        new(State.Inactive, "13", 133) {IsHalfHeight = true, ActivatesTag = Tags.GroupThirteen},
+        new(State.Inactive, "14", 134) {IsHalfHeight = true, ActivatesTag = Tags.GroupFourteen},
+        new(State.Inactive, "15", 135) {IsHalfHeight = true, ActivatesTag = Tags.GroupFivteen},
+        new(State.Inactive, "16", 136) {IsHalfHeight = true, ActivatesTag = Tags.GroupSixteen},
+        new(State.Inactive, "17", 137) {IsHalfHeight = true, ActivatesTag = Tags.GroupSeventeen},
+        new(State.Inactive, "18", 138) {IsHalfHeight = true, ActivatesTag = Tags.GroupEighteen}
+    };
+
+    private readonly ElementButtonModel[] _rowTwo = {
+        new(State.Inactive, "1", 120){IsHalfWidth = true, ActivatesTag = Tags.PeriodOne},
+        new(State.Inactive, "H", 119, CustomColor.LightBlue) {OwnTags = new List<Tags>{Tags.GroupOne, Tags.PeriodOne, Tags.DichteGering, Tags.AggregatGas, Tags.Nichtmetalle, Tags.Natuerlich}},
+        new(), new(), new(), new(), new(), new(), new(), new(), new(), new(), new(), new(), new(), new(), new(), new(),
+        new(State.Inactive, "He", 139, CustomColor.Amber){OwnTags = new List<Tags>{Tags.GroupEighteen, Tags.PeriodOne, Tags.DichteGering, Tags.AggregatGas, Tags.Edelgase, Tags.Natuerlich}}
+    };
+
+    private readonly ElementButtonModel[] _rowThree = {
+        new(State.Inactive, "2", 116) {IsHalfWidth = true, ActivatesTag = Tags.PeriodTwo},
+        new(State.Inactive, "Li", 117, CustomColor.Red){OwnTags = new List<Tags>{Tags.GroupOne, Tags.PeriodTwo, Tags.DichteHoch, Tags.AggregatFest, Tags.Alkalimetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Be", 118, CustomColor.Orange){OwnTags = new List<Tags>{Tags.GroupTwo, Tags.PeriodTwo, Tags.DichteHoch, Tags.AggregatFest, Tags.Erdalkalimetalle, Tags.Natuerlich}},
+        new(), new(), new(), new(), new(), new(), new(), new(), new(), new(),
+        new(State.Inactive, "B", 140, CustomColor.Green){OwnTags = new List<Tags>{Tags.GroupThirteen, Tags.PeriodTwo, Tags.DichteHoch, Tags.AggregatFest, Tags.Halbmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "C", 141, CustomColor.LightBlue){OwnTags = new List<Tags>{Tags.GroupFourteen, Tags.PeriodTwo, Tags.DichteHoch, Tags.AggregatFest, Tags.Nichtmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "N", 142, CustomColor.LightBlue){OwnTags = new List<Tags>{Tags.GroupFivteen, Tags.PeriodTwo, Tags.DichteGering, Tags.AggregatGas, Tags.Nichtmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "O", 143, CustomColor.LightBlue){OwnTags = new List<Tags>{Tags.GroupSixteen, Tags.PeriodTwo, Tags.DichteGering, Tags.AggregatGas, Tags.Nichtmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "F", 144, CustomColor.Cyan){OwnTags = new List<Tags>{Tags.GroupSeventeen, Tags.PeriodTwo, Tags.DichteGering, Tags.AggregatGas, Tags.Halogene, Tags.Natuerlich}},
+        new(State.Inactive, "Ne", 145, CustomColor.Amber){OwnTags = new List<Tags>{Tags.GroupEighteen, Tags.PeriodTwo, Tags.DichteGering, Tags.AggregatGas, Tags.Edelgase, Tags.Natuerlich}}
+    };
+
+    private readonly ElementButtonModel[] _rowFour = {
+        new(State.Inactive, "3", 115) {IsHalfWidth = true, ActivatesTag = Tags.PeriodThree},
+        new(State.Inactive, "Na", 114, CustomColor.Red){OwnTags = new List<Tags>{Tags.GroupOne, Tags.PeriodThree, Tags.DichteHoch, Tags.AggregatFest, Tags.Alkalimetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Mg", 113, CustomColor.Orange){OwnTags = new List<Tags>{Tags.GroupTwo, Tags.PeriodThree, Tags.DichteHoch, Tags.AggregatFest, Tags.Erdalkalimetalle, Tags.Natuerlich}},
+        new(), new(), new(), new(), new(), new(), new(), new(), new(), new(),
+        new(State.Inactive, "Al", 112, CustomColor.LightGreen){OwnTags = new List<Tags>{Tags.GroupThirteen, Tags.PeriodThree, Tags.DichteHoch, Tags.AggregatFest, Tags.Metalle, Tags.Natuerlich}},
+        new(State.Inactive, "Si", 111, CustomColor.Green){OwnTags = new List<Tags>{Tags.GroupFourteen, Tags.PeriodThree, Tags.DichteHoch, Tags.AggregatFest, Tags.Halbmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "P", 110, CustomColor.LightBlue){OwnTags = new List<Tags>{Tags.GroupFivteen, Tags.PeriodThree, Tags.DichteHoch, Tags.AggregatFest, Tags.Nichtmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "S", 109, CustomColor.LightBlue){OwnTags = new List<Tags>{Tags.GroupSixteen, Tags.PeriodThree, Tags.DichteHoch, Tags.AggregatFest, Tags.Nichtmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Cl", 108, CustomColor.Cyan){OwnTags = new List<Tags>{Tags.GroupSeventeen, Tags.PeriodThree, Tags.DichteGering, Tags.AggregatGas, Tags.Halogene, Tags.Natuerlich}},
+        new(State.Inactive, "Ar", 107, CustomColor.Amber){OwnTags = new List<Tags>{Tags.GroupEighteen, Tags.PeriodThree, Tags.DichteGering, Tags.AggregatGas, Tags.Edelgase, Tags.Natuerlich}}
+    };
+
+    private readonly ElementButtonModel[] _rowFive = {
+        new(State.Inactive, "4", 88) {IsHalfWidth = true, ActivatesTag = Tags.PeriodFour},
+        new(State.Inactive, "K", 89, CustomColor.Red){OwnTags = new List<Tags>{Tags.GroupOne, Tags.PeriodFour, Tags.DichteHoch, Tags.AggregatFest, Tags.Alkalimetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Ca", 90, CustomColor.Orange){OwnTags = new List<Tags>{Tags.GroupTwo, Tags.PeriodFour, Tags.DichteHoch, Tags.AggregatFest, Tags.Erdalkalimetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Sc", 91, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodFour, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Ti", 92, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupFour, Tags.PeriodFour, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "V", 93, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupFive, Tags.PeriodFour, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Cr", 94, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupSix, Tags.PeriodFour, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Mn", 95, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupSeven, Tags.PeriodFour, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Fe", 96, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupEight, Tags.PeriodFour, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Co", 97, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupNine, Tags.PeriodFour, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Ni", 98, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupTen, Tags.PeriodFour, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Cu", 99, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupEleven, Tags.PeriodFour, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Zn", 100, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupTwelve, Tags.PeriodFour, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Ga", 101, CustomColor.LightGreen){OwnTags = new List<Tags>{Tags.GroupThirteen, Tags.PeriodFour, Tags.DichteHoch, Tags.AggregatFest, Tags.Metalle, Tags.Natuerlich}},
+        new(State.Inactive, "Ge", 102, CustomColor.Green){OwnTags = new List<Tags>{Tags.GroupFourteen, Tags.PeriodFour, Tags.Halbmetalle, Tags.DichteHoch, Tags.AggregatFest, Tags.Metalle, Tags.Natuerlich}},
+        new(State.Inactive, "As", 103, CustomColor.Green){OwnTags = new List<Tags>{Tags.GroupFivteen, Tags.PeriodFour, Tags.DichteHoch, Tags.AggregatFest, Tags.Halbmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Se", 104, CustomColor.LightBlue){OwnTags = new List<Tags>{Tags.GroupSixteen, Tags.PeriodFour, Tags.DichteHoch, Tags.AggregatFest, Tags.Halbmetalle, Tags.Nichtmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Br", 105, CustomColor.Cyan){OwnTags = new List<Tags>{Tags.GroupSeventeen, Tags.PeriodFour, Tags.DichteHoch, Tags.AggregatFlüssig, Tags.Halogene, Tags.Natuerlich}},
+        new(State.Inactive, "Kr", 106, CustomColor.Amber){OwnTags = new List<Tags>{Tags.GroupEighteen, Tags.PeriodFour, Tags.DichteGering, Tags.AggregatGas, Tags.Edelgase, Tags.Natuerlich}}
+    };
+
+    private readonly ElementButtonModel[] _rowSix = {
+        new(State.Inactive, "5", 87) {IsHalfWidth = true, ActivatesTag = Tags.PeriodFive},
+        new(State.Inactive, "Rb", 86, CustomColor.Red){OwnTags = new List<Tags>{Tags.GroupOne, Tags.PeriodFive, Tags.DichteHoch, Tags.AggregatFest, Tags.Alkalimetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Sr", 85, CustomColor.Orange){OwnTags = new List<Tags>{Tags.GroupTwo, Tags.PeriodFive, Tags.DichteHoch, Tags.AggregatFest, Tags.Erdalkalimetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Y", 84, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodFive, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Zr", 83, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupFour, Tags.PeriodFive, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Nb", 82, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupFive, Tags.PeriodFive, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Mo", 81, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupSix, Tags.PeriodFive, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Tc", 80, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupSeven, Tags.PeriodFive, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Ru", 79, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupEight, Tags.PeriodFive, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Rh", 78, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupNine, Tags.PeriodFive, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Pd", 77, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupTen, Tags.PeriodFive, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Ag", 76, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupEleven, Tags.PeriodFive, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Cd", 75, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupTwelve, Tags.PeriodFive, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "In", 74, CustomColor.LightGreen){OwnTags = new List<Tags>{Tags.GroupThirteen, Tags.PeriodFive, Tags.DichteHoch, Tags.AggregatFest, Tags.Metalle, Tags.Natuerlich}},
+        new(State.Inactive, "Sn", 73, CustomColor.LightGreen){OwnTags = new List<Tags>{Tags.GroupFourteen, Tags.PeriodFive, Tags.DichteHoch, Tags.AggregatFest, Tags.Metalle, Tags.Natuerlich}},
+        new(State.Inactive, "Sb", 72, CustomColor.Green){OwnTags = new List<Tags>{Tags.GroupFivteen, Tags.PeriodFive, Tags.DichteHoch, Tags.AggregatFest, Tags.Metalle, Tags.Natuerlich, Tags.Halbmetalle}},
+        new(State.Inactive, "Te", 71, CustomColor.Green){OwnTags = new List<Tags>{Tags.GroupSixteen, Tags.PeriodFive, Tags.DichteHoch, Tags.AggregatFest, Tags.Halbmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "I", 70, CustomColor.Cyan){OwnTags = new List<Tags>{Tags.GroupSeventeen, Tags.PeriodFive, Tags.DichteHoch, Tags.AggregatFest, Tags.Halogene, Tags.Natuerlich}},
+        new(State.Inactive, "Xe", 69, CustomColor.Amber){OwnTags = new List<Tags>{Tags.GroupEighteen, Tags.PeriodFive, Tags.DichteGering, Tags.AggregatGas, Tags.Edelgase, Tags.Natuerlich}}
+    };
+
+    private readonly ElementButtonModel[] _rowSeven = {
+        new(State.Inactive, "6", 50) {IsHalfWidth = true, ActivatesTag = Tags.PeriodSix},
+        new(State.Inactive, "Cs", 51, CustomColor.Red){OwnTags = new List<Tags>{Tags.GroupOne, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Alkalimetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Ba", 52, CustomColor.Orange){OwnTags = new List<Tags>{Tags.GroupTwo, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Erdalkalimetalle, Tags.Natuerlich, Tags.Radioaktiv}},
+        new(State.Inactive, "*", 53, CustomColor.Brown){ActivatesTag = Tags.Lanthanoide, OwnTags = new List<Tags>{Tags.Lanthanoide, Tags.GroupThree, Tags.PeriodSix}},
+        new(State.Inactive, "Hf", 54, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupFour, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Ta", 55, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupFive, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "W", 56, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupSix, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Re", 57, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupSeven, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Os", 58, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupEight, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Ir", 59, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupNine, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Pt", 60, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupTen, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Au", 61, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupEleven, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Hg", 62, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupTwelve, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFlüssig, Tags.Uebergangsmetalle, Tags.Natuerlich}},
+        new(State.Inactive, "Tl", 63, CustomColor.Green){OwnTags = new List<Tags>{Tags.GroupThirteen, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Metalle, Tags.Natuerlich}},
+        new(State.Inactive, "Pb", 64, CustomColor.Green){OwnTags = new List<Tags>{Tags.GroupFourteen, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Metalle, Tags.Natuerlich}},
+        new(State.Inactive, "Bi", 65, CustomColor.Green){OwnTags = new List<Tags>{Tags.GroupFivteen, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Metalle, Tags.Natuerlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Po", 66, CustomColor.Green){OwnTags = new List<Tags>{Tags.GroupSixteen, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Metalle, Tags.Natuerlich, Tags.Radioaktiv, Tags.Halbmetalle}},
+        new(State.Inactive, "At", 67, CustomColor.Cyan){OwnTags = new List<Tags>{Tags.GroupSeventeen, Tags.PeriodSix, Tags.Unbekannt, Tags.AggregatFest, Tags.Halogene, Tags.Natuerlich, Tags.Radioaktiv, Tags.Halbmetalle}},
+        new(State.Inactive, "Rn", 68, CustomColor.Amber){OwnTags = new List<Tags>{Tags.GroupEighteen, Tags.PeriodSix, Tags.DichteGering, Tags.AggregatGas, Tags.Edelgase, Tags.Natuerlich, Tags.Radioaktiv}}
+    };
+
+    private readonly ElementButtonModel[] _rowEight = {
+        new(State.Inactive, "7", 49) {IsHalfWidth = true, ActivatesTag = Tags.PeriodSeven},
+        new(State.Inactive, "Fr", 48, CustomColor.Red){OwnTags = new List<Tags>{Tags.GroupOne, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Alkalimetalle, Tags.Natuerlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Ra", 47, CustomColor.Orange){OwnTags = new List<Tags>{Tags.GroupTwo, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Erdalkalimetalle, Tags.Natuerlich, Tags.Radioaktiv}},
+        new(State.Inactive, "**", 46, CustomColor.Purple){ActivatesTag = Tags.Actinoide, OwnTags = new List<Tags>{Tags.Actinoide, Tags.GroupThree, Tags.PeriodSeven}},
+        new(State.Inactive, "Rf", 45, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupFour, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Db", 44, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupFive, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Sg", 43, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupSix, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Bh", 42, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupSeven, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Hs", 41, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupEight, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Mt", 40, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupNine, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Ds", 39, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupTen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Rg", 38, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupEleven, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Cn", 37, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupTwelve, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Uebergangsmetalle, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Nh", 36, CustomColor.BlueGrey){OwnTags = new List<Tags>{Tags.GroupThirteen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Unbekannt, Tags.Kuenstlich, Tags.Natuerlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Fl", 35, CustomColor.BlueGrey){OwnTags = new List<Tags>{Tags.GroupFourteen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Unbekannt, Tags.Kuenstlich, Tags.Natuerlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Mc", 34, CustomColor.BlueGrey){OwnTags = new List<Tags>{Tags.GroupFivteen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Unbekannt, Tags.Kuenstlich, Tags.Natuerlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Lv", 33, CustomColor.BlueGrey){OwnTags = new List<Tags>{Tags.GroupSixteen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Unbekannt, Tags.Kuenstlich, Tags.Natuerlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Ts", 32, CustomColor.BlueGrey){OwnTags = new List<Tags>{Tags.GroupSeventeen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Unbekannt, Tags.Kuenstlich, Tags.Natuerlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Og", 31, CustomColor.BlueGrey){OwnTags = new List<Tags>{Tags.GroupEighteen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Unbekannt, Tags.Kuenstlich, Tags.Natuerlich, Tags.Radioaktiv}}
+    };
+
+    private readonly ElementButtonModel[] _rowNine = {
+        new(){IsHalfHeight = true, IsHalfWidth = true}, new(){IsHalfHeight = true}, new(){IsHalfHeight = true},
+        new(){IsHalfHeight = true}, new(){IsHalfHeight = true}, new(){IsHalfHeight = true}, new(){IsHalfHeight = true},
+        new(){IsHalfHeight = true}, new(){IsHalfHeight = true}, new(){IsHalfHeight = true}, new(){IsHalfHeight = true},
+        new(){IsHalfHeight = true}, new(){IsHalfHeight = true}, new(){IsHalfHeight = true}, new(){IsHalfHeight = true},
+        new(){IsHalfHeight = true}, new(){IsHalfHeight = true}, new(){IsHalfHeight = true}, new(){IsHalfHeight = true}
+    };
+
+    private readonly ElementButtonModel[] _rowTen = {
+        new() {IsHalfWidth = true}, new(), new(),
+        new(State.Inactive, "La", 16, CustomColor.Brown){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Lanthanoide, Tags.Natuerlich}},
+        new(State.Inactive, "Ce", 17, CustomColor.Brown){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Lanthanoide, Tags.Natuerlich}},
+        new(State.Inactive, "Pr", 18, CustomColor.Brown){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Lanthanoide, Tags.Natuerlich}},
+        new(State.Inactive, "Nd", 19, CustomColor.Brown){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Lanthanoide, Tags.Natuerlich}},
+        new(State.Inactive, "Pm", 20, CustomColor.Brown){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Lanthanoide, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Sm", 21, CustomColor.Brown){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Lanthanoide, Tags.Natuerlich}},
+        new(State.Inactive, "Eu", 22, CustomColor.Brown){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Lanthanoide, Tags.Natuerlich}},
+        new(State.Inactive, "Gd", 23, CustomColor.Brown){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Lanthanoide, Tags.Natuerlich}},
+        new(State.Inactive, "Tb", 24, CustomColor.Brown){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Lanthanoide, Tags.Natuerlich}},
+        new(State.Inactive, "Dy", 25, CustomColor.Brown){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Lanthanoide, Tags.Natuerlich}},
+        new(State.Inactive, "Ho", 26, CustomColor.Brown){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Lanthanoide, Tags.Natuerlich}},
+        new(State.Inactive, "Er", 27, CustomColor.Brown){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Lanthanoide, Tags.Natuerlich}},
+        new(State.Inactive, "Tm", 28, CustomColor.Brown){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Lanthanoide, Tags.Natuerlich}},
+        new(State.Inactive, "Yb", 29, CustomColor.Brown){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Lanthanoide, Tags.Natuerlich}},
+        new(State.Inactive, "Lu", 30, CustomColor.Brown){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Lanthanoide, Tags.Natuerlich}},
+        new()
+    };
+
+    private readonly ElementButtonModel[] _rowEleven = {
+        new(){IsHalfWidth = true}, new(), new(),
+        new(State.Inactive, "Ac", 15, CustomColor.Purple){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Actinoide, Tags.Natuerlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Th", 14, CustomColor.Purple){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Actinoide, Tags.Natuerlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Pa", 13, CustomColor.Purple){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Actinoide, Tags.Natuerlich, Tags.Radioaktiv}},
+        new(State.Inactive, "U", 12, CustomColor.Purple){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Actinoide, Tags.Natuerlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Np", 11, CustomColor.Purple){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Actinoide, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Pu", 10, CustomColor.Purple){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Actinoide, Tags.Natuerlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Am", 9, CustomColor.Purple){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Actinoide, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Cm", 8, CustomColor.Purple){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Actinoide, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Bk", 7, CustomColor.Purple){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Actinoide, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Cf", 6, CustomColor.Purple){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Actinoide, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Es", 5, CustomColor.Purple){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Actinoide, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Fm", 4, CustomColor.Purple){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Actinoide, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Md", 3, CustomColor.Purple){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Actinoide, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "No", 2, CustomColor.Purple){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Actinoide, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Lr", 1, CustomColor.Purple){OwnTags = new List<Tags>{Tags.GroupThree, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Actinoide, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new()
+    };
 }

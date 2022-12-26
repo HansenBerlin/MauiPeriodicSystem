@@ -1,51 +1,45 @@
 ﻿@using MauiAppBlazorTest.Values
 @using MauiAppBlazorTest.Models
+@using MauiAppBlazorTest.Controller
+@using MauiAppBlazorTest.Interfaces
 @namespace MauiAppBlazorTest.Components
 
-<MudButton Variant="GetVariant()" Style="@ButtonColorStyle()" OnClick="async () => await OnButtonClickedCallback()">@Label</MudButton>
+<MudButton
+    Variant="@Model.GetVariant()"
+    Style="@ButtonColorStyle()"
+    OnClick="async () => await OnButtonClickedCallback()">
+    @Model.Label
+</MudButton>
 
 @code {
-
-    [Parameter] public string Color { get; set; }
-    [Parameter] public string Label { get; set; }
-    [Parameter] public EventCallback<ColorSwitcher> OnActiveStateChanged { get; set; }
-    [Parameter] public List<ButtonStateModel> Buttons { get; set; }
-
-    //private bool _isActive;
+    
+    [Parameter] 
+    public ButtonModel Model { get; set; }
+    
+    [Parameter] 
+    public EventCallback<ColorSwitcher> OnActiveStateChanged { get; set; }
+    
     private const string BaseStyle = "margin: 2px; height: 3vw;";
-
-    private bool IsActive()
-    {
-        int activeElements = 0;
-        int totalElements = 0;
-        foreach (var btn in Buttons)
-        {
-            if (btn.Color == Color || Label == "alle" && btn.IsHalfHeight == false && btn.IsHalfWidth == false)
-            {
-                activeElements = btn.State == State.Active ? activeElements + 1 : activeElements;
-                totalElements++;
-            }
-        }
-        return activeElements == totalElements;
-    }
 
     private string ButtonColorStyle()
     {
-        return BaseStyle + (IsActive() ?
-            $"background-color: {Color}; color: {(Color == CustomColor.White ? CustomColor.DarkGrey : CustomColor.White)}" :
-            $"background-color: transparent; color: {Color}; border-color: {Color};");
-    }
-
-    private Variant GetVariant()
-    {
-        return IsActive() ? Variant.Filled : Variant.Outlined;
+        if (Model.Label == "alle")
+        {
+            Console.WriteLine("");
+        }
+        return BaseStyle + (Model.State == State.Active ?
+            $"background-color: {Model.Color}; color: {(Model.Color == CustomColor.White ? CustomColor.DarkGrey : CustomColor.White)}" :
+            $"background-color: transparent; color: {Model.Color}; border-color: {Model.Color};");
     }
 
     private async Task OnButtonClickedCallback()
     {
-        //_isActive = !_isActive;
-        var colorSwitcher = new ColorSwitcher(Color, !IsActive());
+        Model.State = Model.State == State.Active ? State.Inactive : State.Active;
+        if (Model.Label == "alle")
+        {
+            Console.WriteLine("");
+        }
+        var colorSwitcher = new ColorSwitcher(Model.ActivatesTag, Model.State);
         await OnActiveStateChanged.InvokeAsync(colorSwitcher);
     }
-
 }

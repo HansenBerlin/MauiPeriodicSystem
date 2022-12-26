@@ -15,10 +15,10 @@ else
 }
 @code {
     [Parameter] 
-    public ButtonStateModel Model { get; set; }
+    public ElementButtonModel Model { get; set; }
     
     [Parameter] 
-    public EventCallback<ButtonStateModel> OnModelChanged { get; set; }
+    public EventCallback<ElementButtonModel> OnModelChanged { get; set; }
 
     private async Task OnToggledChanged()
     {
@@ -26,6 +26,7 @@ else
         {
             return;
         }
+        Model.State = Model.State == State.Active ? State.Inactive : State.Active;
         await OnModelChanged.InvokeAsync(Model);
     }
 }

@@ -1,3 +1,5 @@
-﻿namespace MauiAppBlazorTest.Models;
+﻿using MauiAppBlazorTest.Values;
 
-public record ColorSwitcher(string ChangeColors, bool ToState);
+namespace MauiAppBlazorTest.Models;
+
+public record ColorSwitcher(Tags WithTag, State ToState);

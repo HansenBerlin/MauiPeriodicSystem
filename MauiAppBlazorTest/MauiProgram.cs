@@ -1,6 +1,8 @@
-﻿using Microsoft.Extensions.Logging;
-using MudBlazor.Services;
+﻿using MauiAppBlazorTest.Controller;
 using MauiAppBlazorTest.Interfaces;
+using MauiAppBlazorTest.Models;
+using Microsoft.Extensions.Logging;
+using MudBlazor.Services;
 
 namespace MauiAppBlazorTest;
 
@@ -10,18 +12,17 @@ public static class MauiProgram
 	{
 		var builder = MauiApp.CreateBuilder();
 		builder.UseMauiApp<App>();
+        builder.Services.AddScoped<IButtonGrid, ButtonGrid>();
+        builder.Services.AddScoped<IButtonActivationController, ButtonActivationController>();
 		builder.Services.AddMauiBlazorWebView();
 		builder.Services.AddMudServices();
         builder.Services.AddSingleton<HttpClient>();
-
-
 
 #if DEBUG
         builder.Services.AddBlazorWebViewDeveloperTools();
 		builder.Logging.AddDebug();
 #endif
-
-
+		
 		return builder.Build();
 	}
 }

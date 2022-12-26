@@ -3,32 +3,22 @@ using MudBlazor;
 
 namespace MauiAppBlazorTest.Models;
 
-
-public class ButtonStateModel
+public class ElementButtonModel : ButtonModel
 {
-    public State State { get; set; }
     public int Pin { get; }
-    public string Color { get; }
-    public string Label { get; }
     public bool IsHalfHeight { get; init; }
     public bool IsHalfWidth { get; init; }
+    public List<Tags> OwnTags { get; init; } = new();
 
-    public List<int[]> ActivatesElementsAtIndex { get; init; } = new();
-    public List<string> ActivatesElementsWithColors { get; init; } = new();
     private const string BaseStyle = "font-size: 1.8vw; margin: 0.1vw; text-transform: none; padding: 0; ";
 
-    public ButtonStateModel(State state = State.Dummy, string label = "", int pin = 0, string color = "")
+    public ElementButtonModel(State state = State.Dummy, string label = "", int pin = 0, string color = "")
     {
         Pin = pin - 1;
         Color = color == "" ? CustomColor.DarkGrey : color;
         Label = label;
         State = state;
     }
-
-        public Variant GetVariant()
-        {
-            return State == State.Active ? Variant.Filled : Variant.Outlined;
-        }
 
     public string Style()
     {
@@ -40,5 +30,4 @@ public class ButtonStateModel
 
         return State != State.Dummy ? BaseStyle + color + width + height : BaseStyle + width + height;
     }
-
 }
