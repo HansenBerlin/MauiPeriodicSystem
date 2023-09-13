@@ -6,24 +6,25 @@
 @namespace MauiAppBlazorTest.Components
 
 
+
 <MudDialog @bind-IsVisible="@IsVisible" >
     <DialogContent>
-        <div class="d-flex flex-column py-1" style="height: 80vh;">
+        <MudContainer Style="max-height: 80vh; max-width: 40vw; overflow-y: scroll">
             @foreach (var model in CategoryButtons.Buttons)
             {
-                <DialogButton 
+                <DialogButton
                     Model="model"
-                    OnActiveStateChanged="async x => await OnButtonClicked(x)" />
+                    OnActiveStateChanged="async x => await OnButtonClicked(x)"/>
             }
-        </div>
+        </MudContainer>
     </DialogContent>
     <DialogActions>
         <MudButton 
             Style="margin: auto;" 
             Color="Color.Primary" 
             OnClick="@Close" >
-            schlie</MudButton>
-            
+            schließen
+        </MudButton>
     </DialogActions>
 </MudDialog>
 
