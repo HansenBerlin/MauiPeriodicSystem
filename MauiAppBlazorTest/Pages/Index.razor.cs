@@ -2,9 +2,11 @@
 using MauiAppBlazorTest.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.SignalR.Client;
+using MudBlazor;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Net.Http.Json;
 using System.Net.Mime;
@@ -12,11 +14,20 @@ using System.Net.WebSockets;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using PeriodicSystem.Core;
 
 namespace MauiAppBlazorTest.Pages;
 
 public partial class Index
 {
+    [Inject] 
+    private ISnackbar Snackbar { get; set; }
+    
+    [Inject] 
+    private IEndpointIdentifier EndpointIdentifier { get; set; }
+    
+    private HubConnection _connection;
+    private const string EndpointConnect = "http://192.168.10.60:5000/set";
     
 
     private void Callback()
@@ -25,42 +36,21 @@ public partial class Index
 
     }
 
-    const string EndpointMultiple = "http://192.168.10.60:5000/set";
-    const string EndpointGetState = "http://192.168.10.60:5000/active";
     bool _isDialogVisible;
-    private int _cachedValue = 0;
 
-   
-
-    private bool Changed(Dictionary<int, bool> serverValues)
+    protected override async Task OnInitializedAsync()
     {
-        int cachedValue = 0;
-        foreach (var kv in serverValues)
-        {
-            cachedValue += kv.Key * Convert.ToInt32(kv.Value);
-        }
-        bool serverValuesHaveChanged = _cachedValue != cachedValue;
-        _cachedValue = serverValuesHaveChanged ? cachedValue : _cachedValue;
-        return serverValuesHaveChanged;
+        await Connect();
     }
 
-    private async Task UpdateButtons()
+    private async Task UpdateButtons(Dictionary<int, string> states)
     {
-        var response = await HttpClient.GetAsync(EndpointGetState);
-        if (response.IsSuccessStatusCode)
+        foreach (var btn in ButtonModels.AllButtons)
         {
-            var content = await response.Content.ReadFromJsonAsync<Dictionary<int, bool>>();
-            if (Changed(content) == false)
-            {
-                return;
-            }
-            foreach (var btn in ButtonModels.AllButtons)
-            {
-                var isActive = content[btn.Pin];
-                btn.State = isActive ? State.Active : State.Inactive;
-            }
-            StateHasChanged();
+            var isActive = states[btn.Pin] != "#000000";
+            btn.State = isActive ? State.Active : State.Inactive;
         }
+        await InvokeAsync(StateHasChanged);
     }
 
     private void OpenDialog()
@@ -76,7 +66,6 @@ public partial class Index
             btn.State = colorSwitcher.ToState;
         }
         ButtonActivationController.UpdateActivatorButtons();
-        //StateHasChanged();
 
         await PostUpdatedStates();
     }
@@ -87,36 +76,25 @@ public partial class Index
         {
             btn.State = toState;
         }
-        //StateHasChanged();
-
         await PostUpdatedStates();
     }
 
     private async Task PostUpdatedStates()
     {
-        //var dict = new Dictionary<int, string>();
-        //var dict2 = new Dictionary<int, bool>();
-        //foreach (var btn in ButtonModels.AllButtons)
-        //{
-        //    if (btn.State == State.Active)
-        //    {
-        //        var color = btn.Color == "#212121" ? "#909090" : btn.Color;
-        //        dict.Add(btn.Pin, color);
-        //        dict2.Add(btn.Pin, true);
-        //    }
-        //    else if (btn.State == State.Inactive)
-        //    {
-        //        dict.Add(btn.Pin, "#000000");
-        //        dict2.Add(btn.Pin, false);
-        //    }
-        //}
-        ////var json = new StringContent(
-        ////    JsonSerializer.Serialize(dict),
-        ////    Encoding.UTF8,
-        ////    MediaTypeNames.Application.Json);
-        ////await HttpClient.PostAsync(EndpointMultiple, json);
-        //var message = new Message() { ActiveLeds = dict2 };
-        //await SendMessage(message);
+        var dict = new Dictionary<int, string>();
+        foreach (var btn in ButtonModels.AllButtons)
+        {
+            if (btn.State == State.Active)
+            {
+                var color = btn.Color == "#212121" ? "#909090" : btn.Color;
+                dict.Add(btn.Pin, color);
+            }
+            else if (btn.State == State.Inactive)
+            {
+                dict.Add(btn.Pin, "#000000");
+            }
+        }
+        await SendMessage(dict);
     }
 
     private async Task SingleButtonClicked(ElementButtonModel model)
@@ -133,8 +111,7 @@ public partial class Index
         await PostUpdatedStates();
     }
 
-    private HubConnection _connection;
-    private const string EndpointConnect = "http://127.0.0.1:5000/message";
+    
     private async Task Connect()
     {
         try
@@ -142,37 +119,77 @@ public partial class Index
             _connection = new HubConnectionBuilder()
             .WithUrl(EndpointConnect)
             .Build();
-            _connection.On<string>("MessageReceived", async message =>
-            {
-                Console.WriteLine($"Message received: {message}");
-                await InvokeAsync(StateHasChanged);
-            });
+
+            _connection.On<Dictionary<int, string>>("ActiveLedsReceived", UpdateButtons);
             
             await _connection.StartAsync();
             
         }
-        catch(Exception ex)
+        catch (Exception)
         {
-            Console.WriteLine(ex.ToString());
-            Console.WriteLine(ex.Message.ToString());
-            Console.WriteLine(ex.StackTrace.ToString());
+            Snackbar.Add("Connection could not be established", Severity.Error);
         }
         
     }
 
-    private async Task SendMessage()
+    private async Task SendMessage(Dictionary<int, string> states)
     {
-        await _connection.InvokeAsync("SendMessage", "Hello" + DateTime.Now);
-        //Debug.Assert(_webSocket != null, nameof(_webSocket) + " != null");
-        //if (_webSocket.State == WebSocketState.Open)
-        //{     
-        //    var messageJson = JsonSerializer.Serialize(message);
-        //    var bytes = Encoding.UTF8.GetBytes(messageJson);
-        //    //var message = $"Hello from {name} at {DateTime.Now}";
-        //    //var bytes = Encoding.UTF8.GetBytes(message);
-        //    await _webSocket.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, true, CancellationToken.None);
-        //}
+        try
+        {
+            await _connection.InvokeAsync(EndpointIdentifier.SendLeds, states);
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("Connection lost", Severity.Error);
+        }
+        
     }
 
-    
+    private async Task StartAnimation(bool isRandomized)
+    {
+        var dict = new Dictionary<int, string>();
+        foreach (var btn in ButtonModels.AllButtons)
+        {
+            var color = btn.Color == "#212121" ? "#909090" : btn.Color;
+            dict.Add(btn.Pin, color);
+        }
+
+        var request = new LedAnimationRequest
+        {
+            LedColors = dict,
+            Randomize = isRandomized,
+            Delay = 50
+        };
+
+        try
+        {
+            await _connection.InvokeAsync(EndpointIdentifier.Animate, request);
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("Connection lost", Severity.Error);
+        }
+    }
+
+    private async Task SetClock()
+    {
+
+        await SendSignal(EndpointIdentifier.StartClock);
+
+    }
+
+    private async Task SendSignal(string invokeMethodName)
+    {
+        try
+        {
+            await _connection.InvokeAsync(invokeMethodName);
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("Connection lost", Severity.Error);
+        }
+        
+    }
+
+
 }

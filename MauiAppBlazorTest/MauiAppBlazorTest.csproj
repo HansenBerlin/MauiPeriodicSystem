@@ -22,7 +22,7 @@
 
         <!-- Versions -->
         <ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
-        <ApplicationVersion>10</ApplicationVersion>
+        <ApplicationVersion>12</ApplicationVersion>
 
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">24.0</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
@@ -62,6 +62,10 @@
     <ItemGroup>
       <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.0" />
       <PackageReference Include="MudBlazor" Version="6.9.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PeriodicSystem.Core\PeriodicSystem.Core.csproj" />
     </ItemGroup>
 
     

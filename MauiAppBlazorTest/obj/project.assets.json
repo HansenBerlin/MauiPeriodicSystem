@@ -2487,6 +2487,16 @@
         "build": {
           "buildTransitive/net6.0-android31.0/Xamarin.KotlinX.Coroutines.Core.Jvm.targets": {}
         }
+      },
+      "PeriodicSystem.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        }
       }
     },
     "net7.0-android33.0/android-arm": {
@@ -4968,6 +4978,16 @@
         },
         "build": {
           "buildTransitive/net6.0-android31.0/Xamarin.KotlinX.Coroutines.Core.Jvm.targets": {}
+        }
+      },
+      "PeriodicSystem.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
         }
       }
     },
@@ -7451,6 +7471,16 @@
         "build": {
           "buildTransitive/net6.0-android31.0/Xamarin.KotlinX.Coroutines.Core.Jvm.targets": {}
         }
+      },
+      "PeriodicSystem.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        }
       }
     },
     "net7.0-android33.0/android-x64": {
@@ -9932,6 +9962,16 @@
         },
         "build": {
           "buildTransitive/net6.0-android31.0/Xamarin.KotlinX.Coroutines.Core.Jvm.targets": {}
+        }
+      },
+      "PeriodicSystem.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
         }
       }
     },
@@ -12415,6 +12455,16 @@
         "build": {
           "buildTransitive/net6.0-android31.0/Xamarin.KotlinX.Coroutines.Core.Jvm.targets": {}
         }
+      },
+      "PeriodicSystem.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        }
       }
     },
     "net7.0-android33.0/win10-x64": {
@@ -14897,6 +14947,16 @@
         "build": {
           "buildTransitive/net6.0-android31.0/Xamarin.KotlinX.Coroutines.Core.Jvm.targets": {}
         }
+      },
+      "PeriodicSystem.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        }
       }
     },
     "net7.0-windows10.0.19041": {
@@ -15771,6 +15831,16 @@
         "build": {
           "buildTransitive/net6.0/_._": {}
         }
+      },
+      "PeriodicSystem.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        }
       }
     },
     "net7.0-windows10.0.19041/android-arm": {
@@ -16610,6 +16680,16 @@
         },
         "build": {
           "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "PeriodicSystem.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
         }
       }
     },
@@ -17451,6 +17531,16 @@
         "build": {
           "buildTransitive/net6.0/_._": {}
         }
+      },
+      "PeriodicSystem.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        }
       }
     },
     "net7.0-windows10.0.19041/android-x64": {
@@ -18291,6 +18381,16 @@
         "build": {
           "buildTransitive/net6.0/_._": {}
         }
+      },
+      "PeriodicSystem.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        }
       }
     },
     "net7.0-windows10.0.19041/android-x86": {
@@ -19130,6 +19230,16 @@
         },
         "build": {
           "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "PeriodicSystem.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
         }
       }
     },
@@ -19976,6 +20086,16 @@
         },
         "build": {
           "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "PeriodicSystem.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PeriodicSystem.Core.dll": {}
         }
       }
     }
@@ -23990,6 +24110,11 @@
         "xamarin.kotlinx.coroutines.core.jvm.1.6.4.1.nupkg.sha512",
         "xamarin.kotlinx.coroutines.core.jvm.nuspec"
       ]
+    },
+    "PeriodicSystem.Core/1.0.0": {
+      "type": "project",
+      "path": "../PeriodicSystem.Core/PeriodicSystem.Core.csproj",
+      "msbuildProject": "../PeriodicSystem.Core/PeriodicSystem.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -24004,6 +24129,7 @@
       "Microsoft.NET.ILLink.Analyzers >= 7.0.100-1.23211.1",
       "Microsoft.NET.ILLink.Tasks >= 7.0.100-1.23211.1",
       "MudBlazor >= 6.9.0",
+      "PeriodicSystem.Core >= 1.0.0",
       "Xamarin.Android.Glide >= 4.13.2.2",
       "Xamarin.AndroidX.Browser >= 1.4.0.3",
       "Xamarin.AndroidX.Legacy.Support.V4 >= 1.0.0.15",
@@ -24026,7 +24152,8 @@
       "Microsoft.Maui.Graphics >= 7.0.92",
       "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop >= 7.0.92",
       "Microsoft.WindowsAppSDK >= 1.2.221209.1",
-      "MudBlazor >= 6.9.0"
+      "MudBlazor >= 6.9.0",
+      "PeriodicSystem.Core >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -24065,11 +24192,19 @@
       "frameworks": {
         "net7.0-android33.0": {
           "targetAlias": "net7.0-android",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Hannes\\source\\repos\\MauiAppBlazorTest\\PeriodicSystem.Core\\PeriodicSystem.Core.csproj": {
+              "projectPath": "C:\\Users\\Hannes\\source\\repos\\MauiAppBlazorTest\\PeriodicSystem.Core\\PeriodicSystem.Core.csproj"
+            }
+          }
         },
         "net7.0-windows10.0.19041": {
           "targetAlias": "net7.0-windows10.0.19041.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Hannes\\source\\repos\\MauiAppBlazorTest\\PeriodicSystem.Core\\PeriodicSystem.Core.csproj": {
+              "projectPath": "C:\\Users\\Hannes\\source\\repos\\MauiAppBlazorTest\\PeriodicSystem.Core\\PeriodicSystem.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

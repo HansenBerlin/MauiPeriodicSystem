@@ -34,14 +34,26 @@
                    />
 </div>
 <MudButton Style="position: absolute; width: 9vw; height: 4.3vw; top: 0; margin: 8.8vw auto auto 33.2vw; font-size: 1.2vw; background-color: transparent; border-color: black;"
-           OnClick="async _ => await Connect() "
+           OnClick="OpenDialog"
            Variant="Variant.Filled"
            Color="Color.Primary">
-    Connect
+    Kombis
 </MudButton>
 <MudButton Style="position: absolute; width: 9vw; height: 4.3vw; top: 0; margin: 8.8vw auto auto 42.2vw; font-size: 1.2vw; background-color: transparent; border-color: black;"
-           OnClick="async _ => await SendMessage() "
+           OnClick="async () => await StartAnimation(false)"
            Variant="Variant.Filled"
            Color="Color.Secondary">
-    Quiz
+    Snail
+</MudButton>
+<MudButton Style="position: absolute; width: 9vw; height: 4.3vw; top: 0; margin: 8.8vw auto auto 51.2vw; font-size: 1.2vw; background-color: transparent; border-color: black;"
+           OnClick="async () => await StartAnimation(true)"
+           Variant="Variant.Filled"
+           Color="Color.Secondary">
+    Random
+</MudButton>
+<MudButton Style="position: absolute; width: 9vw; height: 4.3vw; top: 0; margin: 8.8vw auto auto 60.2vw; font-size: 1.2vw; background-color: transparent; border-color: black;"
+           OnClick="async () => await SetClock()"
+           Variant="Variant.Filled"
+           Color="Color.Secondary">
+    Time
 </MudButton>
