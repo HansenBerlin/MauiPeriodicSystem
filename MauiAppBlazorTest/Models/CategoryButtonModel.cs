@@ -1,4 +1,5 @@
-﻿using MauiAppBlazorTest.Values;
+﻿using System.Collections.Generic;
+using MauiAppBlazorTest.Values;
 
 namespace MauiAppBlazorTest.Models;
 
@@ -17,6 +18,16 @@ public class CategoryButtonModel
         new ButtonModel{State = State.Inactive, ActivatesTag = Tags.Nichtmetalle, Color = CustomColor.LightBlue, Label="Nichtmetalle"},
         new ButtonModel{State = State.Inactive, ActivatesTag = Tags.Halogene, Color = CustomColor.Cyan, Label="Halogene"},
         new ButtonModel{State = State.Inactive, ActivatesTag = Tags.Edelgase, Color = CustomColor.Amber, Label="Edelgase"},
-        new ButtonModel{State = State.Inactive, ActivatesTag = Tags.Unbekannt, Color = CustomColor.BlueGrey, Label="unbekannt"}
+        new ButtonModel{State = State.Inactive, ActivatesTag = Tags.Unbekannt, Color = CustomColor.BlueGrey, Label="unbekannt"},
+        new ButtonModel{State = State.Inactive, ActivatesTag = Tags.Radioaktiv, Color = CustomColor.BlueGrey, Label="radioaktiv"},
+        new ButtonModel{State = State.Inactive, ActivatesTag = Tags.DichteUnbekannt, Color = CustomColor.BlueGrey, Label="Dichte unbekannt"},
+        new ButtonModel{State = State.Inactive, ActivatesTag = Tags.DichteGering, Color = CustomColor.BlueGrey, Label="Dichte gering"},
+        new ButtonModel{State = State.Inactive, ActivatesTag = Tags.DichteHoch, Color = CustomColor.BlueGrey, Label="Dichte hoch"},
+        new ButtonModel{State = State.Inactive, ActivatesTag = Tags.AggregatUnbekannt, Color = CustomColor.BlueGrey, Label="Agg. unbekannt"},
+        new ButtonModel{State = State.Inactive, ActivatesTag = Tags.AggregatFest, Color = CustomColor.BlueGrey, Label="Agg. fest"},
+        new ButtonModel{State = State.Inactive, ActivatesTag = Tags.AggregatFlüssig, Color = CustomColor.BlueGrey, Label="Agg. flüssig"},
+        new ButtonModel{State = State.Inactive, ActivatesTag = Tags.AggregatGas, Color = CustomColor.BlueGrey, Label="Agg. gasförmig"},
+        new ButtonModel{State = State.Inactive, ActivatesTag = Tags.Natuerlich, Color = CustomColor.BlueGrey, Label="natürlich"},
+        new ButtonModel{State = State.Inactive, ActivatesTag = Tags.Kuenstlich, Color = CustomColor.BlueGrey, Label="künstlich"},
     };
 }

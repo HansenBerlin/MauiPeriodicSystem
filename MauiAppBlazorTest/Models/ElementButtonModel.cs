@@ -1,4 +1,5 @@
-﻿using MauiAppBlazorTest.Values;
+﻿using System.Collections.Generic;
+using MauiAppBlazorTest.Values;
 using MudBlazor;
 
 namespace MauiAppBlazorTest.Models;

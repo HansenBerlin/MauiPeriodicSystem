@@ -1,6 +1,9 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Microsoft.Maui;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Controls.PlatformConfiguration;
 
 namespace MauiAppBlazorTest;
 
@@ -12,7 +15,7 @@ public class MainActivity : MauiAppCompatActivity
     protected override void OnCreate(Bundle savedInstanceState)
     {
         
-        base.SetTheme(Resource.Style.Maui_SplashTheme);
+        //base.SetTheme(Resource.Style.Maui_SplashTheme);
         base.OnCreate(savedInstanceState);
 
         if (Build.VERSION.SdkInt < Android.OS.BuildVersionCodes.Lollipop)

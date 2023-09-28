@@ -1,4 +1,6 @@
-﻿namespace MauiAppBlazorTest.Models;
+﻿using System.Collections.Generic;
+
+namespace MauiAppBlazorTest.Models;
 
 public interface IButtonGrid
 {

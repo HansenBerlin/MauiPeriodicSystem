@@ -1,4 +1,5 @@
-﻿using MauiAppBlazorTest.Values;
+﻿using System.Collections.Generic;
+using MauiAppBlazorTest.Values;
 
 namespace MauiAppBlazorTest.Models;
 
@@ -139,7 +140,7 @@ public class ButtonGrid : IButtonGrid
         new(State.Inactive, "6", 50) {IsHalfWidth = true, ActivatesTag = Tags.PeriodSix},
         new(State.Inactive, "Cs", 51, CustomColor.Red){OwnTags = new List<Tags>{Tags.GroupOne, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Alkalimetalle, Tags.Natuerlich}},
         new(State.Inactive, "Ba", 52, CustomColor.Orange){OwnTags = new List<Tags>{Tags.GroupTwo, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Erdalkalimetalle, Tags.Natuerlich, Tags.Radioaktiv}},
-        new(State.Inactive, "*", 53, CustomColor.Brown){ActivatesTag = Tags.Lanthanoide, OwnTags = new List<Tags>{Tags.Lanthanoide, Tags.GroupThree, Tags.PeriodSix}},
+        new(State.Inactive, "*", 53, CustomColor.Brown){ActivatesTag = Tags.Lanthanoide, OwnTags = new List<Tags>{Tags.Lanthanoide, Tags.GroupThree, Tags.PeriodSix, Tags.DichteHoch}},
         new(State.Inactive, "Hf", 54, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupFour, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
         new(State.Inactive, "Ta", 55, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupFive, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
         new(State.Inactive, "W", 56, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupSix, Tags.PeriodSix, Tags.DichteHoch, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Natuerlich}},
@@ -161,7 +162,7 @@ public class ButtonGrid : IButtonGrid
         new(State.Inactive, "7", 49) {IsHalfWidth = true, ActivatesTag = Tags.PeriodSeven},
         new(State.Inactive, "Fr", 48, CustomColor.Red){OwnTags = new List<Tags>{Tags.GroupOne, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Alkalimetalle, Tags.Natuerlich, Tags.Radioaktiv}},
         new(State.Inactive, "Ra", 47, CustomColor.Orange){OwnTags = new List<Tags>{Tags.GroupTwo, Tags.PeriodSeven, Tags.DichteHoch, Tags.AggregatFest, Tags.Erdalkalimetalle, Tags.Natuerlich, Tags.Radioaktiv}},
-        new(State.Inactive, "**", 46, CustomColor.Purple){ActivatesTag = Tags.Actinoide, OwnTags = new List<Tags>{Tags.Actinoide, Tags.GroupThree, Tags.PeriodSeven}},
+        new(State.Inactive, "**", 46, CustomColor.Purple){ActivatesTag = Tags.Actinoide, OwnTags = new List<Tags>{Tags.Actinoide, Tags.GroupThree, Tags.PeriodSeven, Tags.DichteHoch, Tags.Radioaktiv}},
         new(State.Inactive, "Rf", 45, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupFour, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Kuenstlich, Tags.Radioaktiv}},
         new(State.Inactive, "Db", 44, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupFive, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Kuenstlich, Tags.Radioaktiv}},
         new(State.Inactive, "Sg", 43, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupSix, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Kuenstlich, Tags.Radioaktiv}},
@@ -171,12 +172,12 @@ public class ButtonGrid : IButtonGrid
         new(State.Inactive, "Ds", 39, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupTen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Kuenstlich, Tags.Radioaktiv}},
         new(State.Inactive, "Rg", 38, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupEleven, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatFest, Tags.Uebergangsmetalle, Tags.Kuenstlich, Tags.Radioaktiv}},
         new(State.Inactive, "Cn", 37, CustomColor.Lime){OwnTags = new List<Tags>{Tags.GroupTwelve, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Uebergangsmetalle, Tags.Kuenstlich, Tags.Radioaktiv}},
-        new(State.Inactive, "Nh", 36, CustomColor.BlueGrey){OwnTags = new List<Tags>{Tags.GroupThirteen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Unbekannt, Tags.Kuenstlich, Tags.Natuerlich, Tags.Radioaktiv}},
-        new(State.Inactive, "Fl", 35, CustomColor.BlueGrey){OwnTags = new List<Tags>{Tags.GroupFourteen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Unbekannt, Tags.Kuenstlich, Tags.Natuerlich, Tags.Radioaktiv}},
-        new(State.Inactive, "Mc", 34, CustomColor.BlueGrey){OwnTags = new List<Tags>{Tags.GroupFivteen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Unbekannt, Tags.Kuenstlich, Tags.Natuerlich, Tags.Radioaktiv}},
-        new(State.Inactive, "Lv", 33, CustomColor.BlueGrey){OwnTags = new List<Tags>{Tags.GroupSixteen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Unbekannt, Tags.Kuenstlich, Tags.Natuerlich, Tags.Radioaktiv}},
-        new(State.Inactive, "Ts", 32, CustomColor.BlueGrey){OwnTags = new List<Tags>{Tags.GroupSeventeen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Unbekannt, Tags.Kuenstlich, Tags.Natuerlich, Tags.Radioaktiv}},
-        new(State.Inactive, "Og", 31, CustomColor.BlueGrey){OwnTags = new List<Tags>{Tags.GroupEighteen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Unbekannt, Tags.Kuenstlich, Tags.Natuerlich, Tags.Radioaktiv}}
+        new(State.Inactive, "Nh", 36, CustomColor.BlueGrey){OwnTags = new List<Tags>{Tags.GroupThirteen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Unbekannt, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Fl", 35, CustomColor.BlueGrey){OwnTags = new List<Tags>{Tags.GroupFourteen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Unbekannt, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Mc", 34, CustomColor.BlueGrey){OwnTags = new List<Tags>{Tags.GroupFivteen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Unbekannt, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Lv", 33, CustomColor.BlueGrey){OwnTags = new List<Tags>{Tags.GroupSixteen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Unbekannt, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Ts", 32, CustomColor.BlueGrey){OwnTags = new List<Tags>{Tags.GroupSeventeen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Unbekannt, Tags.Kuenstlich, Tags.Radioaktiv}},
+        new(State.Inactive, "Og", 31, CustomColor.BlueGrey){OwnTags = new List<Tags>{Tags.GroupEighteen, Tags.PeriodSeven, Tags.DichteUnbekannt, Tags.AggregatUnbekannt, Tags.Unbekannt, Tags.Kuenstlich, Tags.Radioaktiv}}
     };
 
     private readonly ElementButtonModel[] _rowNine = {
